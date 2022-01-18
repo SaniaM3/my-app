@@ -4,16 +4,28 @@ import Post from './Post/Post';
 
 
 const MyPosts = () => {
+
+  let posts = [
+    { id: 1, message: 'Hi, how are you?', likes: '1' },
+    { id: 2, message: 'Its my first post', likes: '3' },
+    { id: 3, message: 'Haha', likes: '11' },
+    { id: 4, message: 'Oh', likes: '100' },
+  ]
+let postsElements = posts.map(p =>  <Post message = {p.message} id = {p.id} likes = {p.likes} />);
+  
   return (
-    <div>
-      My posts
+    <div className={s.postsBlock}>
+      <h3>My posts</h3>
       <div>
-        <textarea></textarea>
-        <button>Add post</button>
+        <div>
+          <textarea></textarea>
+        </div>
+        <div>
+          <button>Add post</button>
+        </div>
       </div>
       <div className={s.posts}>
-        <Post message='Hi, how are you?' likes='1'/>
-        <Post message='Its my first post' likes='3'/>
+        {postsElements}
       </div>
     </div>
   )
